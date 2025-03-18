@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Trading Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 p-4 text-center">
+        <h1 class="text-white text-2xl font-bold">Online Trading Platform</h1>
+    </nav>
+
+    <!-- Trading Section -->
+    <section class="py-8 flex flex-col items-center">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md text-center">
+            <h2 class="text-lg font-bold mb-4">Trade Your Assets</h2>
+            <label for="asset" class="block mb-2">Choose Asset:</label>
+            <select id="asset" class="p-2 text-black w-full rounded-md mb-4">
+                <option value="Bitcoin">Bitcoin</option>
+                <option value="Ethereum">Ethereum</option>
+                <option value="Stocks">Stocks</option>
+                <option value="Forex">Forex</option>
+            </select>
+            <label for="amount" class="block mb-2">Amount:</label>
+            <input id="amount" type="number" placeholder="Enter amount" class="p-2 text-black w-full rounded-md mb-4">
+            <button onclick="executeTrade()" class="bg-green-500 px-4 py-2 text-white rounded hover:bg-green-700">Trade Now</button>
+        </div>
+        <div id="tradeResult" class="mt-4 text-lg font-bold hidden"></div>
+    </section>
+
+    <script>
+        function executeTrade() {
+            const asset = document.getElementById("asset").value;
+            const amount = document.getElementById("amount").value;
+            if (!amount || amount <= 0) {
+                alert("Please enter a valid amount.");
+                return;
+            }
+            document.getElementById("tradeResult").innerText = `You have successfully traded ${amount} units of ${asset}!`;
+            document.getElementById("tradeResult").classList.remove("hidden");
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-center py-4 text-white mt-8">
+        <p>&copy; 2025 Online Trading Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>
